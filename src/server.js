@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'; // allow you to parse the cookie value
 import cors from 'cors';
 import authRoute from './Routes/authRoute.js';
 dotenv.config();
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -17,7 +18,6 @@ app.use(cookieParser());
 
 app.use('/auth',authRoute);
 
-const PORT = process.env.PORT;
 
 app.listen(PORT,()=>{
   console.log(`Listening to port ${PORT}`);
