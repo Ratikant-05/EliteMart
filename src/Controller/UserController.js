@@ -35,13 +35,12 @@ export const signupController = async (req,res)=>{
       await newUser.save(); //saving the new user in the database
       generateToken(newUser._id,res) // res is used so tha it can send the cookie in the response
       // 201 >> create
-      res.status(201).json(
-        "User created successfully"
-        // _id:newUser._id,
-        // fullName:newUser.fullName,
-        // email:newUser.email,
-        // profilePic:newUser.profilePic
-      )
+      res.status(201).json({
+        _id:newUser._id,
+        fullName:newUser.fullName,
+        email:newUser.email,
+        profilePic:newUser.profilePic
+    })
     }else{
       res.status(400).json({message: "Invalid User Data"})
     }

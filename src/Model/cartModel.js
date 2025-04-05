@@ -11,9 +11,12 @@ const cartSchema = new mongoose.Schema({
           type: mongoose.Schema.Types.ObjectId,
           ref: "Product"
         },
-        quantity:{type: Number,
+        quantity:{
+          type: Number,
           required: true,
           default: 1
-        }}]},{ timestamps: true });
+        }
+      }]
+    },{ timestamps: true });
 
 export default mongoose.model("Cart", cartSchema);

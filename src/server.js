@@ -4,6 +4,9 @@ import connectDB from './lib/db.js';
 import cookieParser from 'cookie-parser'; // allow you to parse the cookie values
 import cors from 'cors';
 import authRoute from './Routes/authRoute.js';
+import productRoute from './Routes/productRoute.js'
+import cartRoute from './Routes/cartRoute.js';
+import orderRoute from './Routes/orderRoute.js';
 dotenv.config();
 const PORT = process.env.PORT;
 
@@ -17,6 +20,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/auth',authRoute);
+app.use('/product',productRoute)
+app.use('/cart',cartRoute)
+app.use('/order',orderRoute)
 
 
 app.listen(PORT,()=>{
